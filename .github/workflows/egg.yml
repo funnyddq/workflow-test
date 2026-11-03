@@ -7,11 +7,15 @@ jobs:
       - run: pwd
       - run: ls
       - run: echo "job1 on Ubuntu"
-      - run: python ..\..\hello.py
+      - name: build
+        working-directory: ${{ github.workspace }}
+        run: python hello.py
   job2:
     runs-on: windows-latest
     steps:
       - run: cd
       - run: dir
       - run: echo "job2 on Windows"
-      - run: python ..\..\hello.py
+      - name: build
+        working-directory: ${{ github.workspace }}
+        run: python hello.py
